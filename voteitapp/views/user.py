@@ -51,7 +51,7 @@ def profile():
         return render_template('/user/detail.html', user=user)
 
 
-@app.route('/user/<id>/')
+@app.route('/users/user/<id>/')
 def user(id):
     user = db.session.query(User).outerjoin(User.posts).filter(User.id == id).one()
     if not user:

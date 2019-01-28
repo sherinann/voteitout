@@ -9,7 +9,7 @@ from voteitapp.models import Post, Vote
 from voteitapp.forms import PostForm
 
 
-@app.route('/post/create', methods=['GET', 'POST'])
+@app.route('/posts/post', methods=['GET', 'POST'])
 def create_post():
     form = PostForm()
     if request.method == 'POST':
@@ -30,7 +30,7 @@ def posts():
     return render_template('post/posts.html', posts=posts)
 
 
-@app.route('/post/<id>/', methods=['POST', 'GET'])
+@app.route('/posts/post/<id>/', methods=['POST', 'GET'])
 def post_detail(id):
     post = db.session.query(Post).filter(Post.id == id).one()
     if request.method == 'GET':
@@ -56,7 +56,7 @@ def post_detail(id):
         return render_template('post/detail.html', post=post)
 
 
-@app.route('/posts/<id>/', methods=['GET'])
+@app.route('/users/user/posts/<id>/', methods=['GET'])
 def get_posts(id):
     posts = db.session.query(Post).filter(Post.user_id == id).all()
     return render_template('post/posts.html', posts=posts)

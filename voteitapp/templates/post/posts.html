@@ -7,11 +7,11 @@
     <div class="col s12 m6" >
       <div class="card ">
         <div class="card-content black-text">
-          <span class="card-title"><a href="/post/{{post.id}}/">{{post.title}}</a></span>
+          <span class="card-title"><a href="/posts/post/{{post.id}}/">{{post.title}}</a></span>
           <p>{{post.body}}</p>
         </div>
         <div class="card-action">
-          <p>author:<a href="/user/{{post.user_id}}/">{{post.user_id}}</a></p>
+          <p>author:<a href="/users/user/{{post.user_id}}/">{{post.user_id}}</a></p>
           <p>date:{{post.timestamp}}</p>
         </div>
       </div>
@@ -21,5 +21,5 @@
 {% endfor %}
 
 
-<a href="/post/create">new post</a>
+<a href="/posts/post">new post</a>
 

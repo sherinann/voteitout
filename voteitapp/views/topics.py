@@ -5,7 +5,7 @@ from voteitapp import app, db, Post
 
 @app.route('/posts/<topic>')
 def get_posts(topic):
-    posts = db.session.query(Post).filter(topic == topic).all(0)
+    posts = db.session.query(Post).filter(Post.topic == topic).all(0)
     return render_template('post/posts.html', posts=posts)
 
 
