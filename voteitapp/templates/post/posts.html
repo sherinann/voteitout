@@ -1,0 +1,25 @@
+{% include "index.html" %}
+{% include "navbar.html" %}
+
+
+{% for post in posts %}
+  <div class="row" style="align:centre;">
+    <div class="col s12 m6" >
+      <div class="card ">
+        <div class="card-content black-text">
+          <span class="card-title"><a href="/post/{{post.id}}/">{{post.title}}</a></span>
+          <p>{{post.body}}</p>
+        </div>
+        <div class="card-action">
+          <p>author:<a href="/user/{{post.user_id}}/">{{post.user_id}}</a></p>
+          <p>date:{{post.timestamp}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endfor %}
+
+
+<a href="/post/create">new post</a>
+

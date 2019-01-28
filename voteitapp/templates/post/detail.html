@@ -1,0 +1,47 @@
+{% include "index.html" %}
+{% include "navbar.html" %}
+
+
+
+  <div class="row" style="align:centre;">
+    <div class="col s12 m6" >
+      <div class="card ">
+        <div class="card-content black-text">
+          <span class="card-title"><a href="/post/{{post.id}}/">{{post.title}}</a></span>
+          <p>{{post.body}}</p>
+        </div>
+        <div class="card-action">
+          <p>author:<a href="/user/{{post.user_id}}/">{{post.user_id}}</a></p>
+          <p>date:{{post.timestamp}}</p>
+             <p>upvotes:{{post.upvotes}}</p>
+            <p>downvotes:{{post.downvotes}}</p>
+
+            <form action="/post/{{post.id}}/" method="post">
+    <div>
+        <p>
+      <label>
+        <input name="votes" type="radio" value="1" />
+        <span>upvote</span>
+      </label>
+    </p>
+    <p>
+      <label>
+        <input name="votes" type="radio" value="-1" />
+        <span>downvote</span>
+      </label>
+    </p>
+
+    </div>
+    <div>
+        <input type="submit">
+    </div>
+    </form>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+
+

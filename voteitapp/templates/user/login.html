@@ -1,0 +1,45 @@
+
+<html>
+<head>
+      <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+
+    <link rel="stylesheet" href="styles.css">
+    <script src="user.js"></script>
+</head>
+</html>
+<body>
+
+    <div class="container">
+        <h1>Log In</h1>
+<div class="row">
+    <form class="col s12" id="reg-form" action="/login" method="post">
+        {{ form.hidden_tag() }}
+      <div class="row">
+        <div class="input-field col s12">
+          {{form.username.label}}<br>
+            {{form.username}}<br>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+           {{form.password.label}}<br>
+            {{form.password}}<br>
+        </div>
+      </div>
+        <div class="input-field col s6">
+            <button class="btn btn-large btn-register waves-effect waves-light" type="submit" name="action">Log In
+
+          </button>
+
+        </div>
+    </form>
+  </div>
+</div>
+
+</body>
+

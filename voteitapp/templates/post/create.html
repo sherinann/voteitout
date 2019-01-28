@@ -1,0 +1,13 @@
+{% include "index.html" %}
+{% include "navbar.html" %}
+
+<h1>Create Post</h1>
+
+<form action="/post/create" method="post" >
+     {{ form.hidden_tag() }}
+    {{form.title.label}}<br>
+    {{form.title}}<br>
+     {{form.body.label}}<br>
+    {{form.body}}<br>
+    {{form.submit}}<br>
+</form>
