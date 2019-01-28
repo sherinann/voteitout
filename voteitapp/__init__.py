@@ -12,6 +12,6 @@ migrate = Migrate(app, db, compare_type=True)
 login = LoginManager(app)
 
 from voteitapp import routes
-from models import User, Post
+from models import User, Post, Comment, Topic
 
 

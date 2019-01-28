@@ -53,7 +53,7 @@ def profile():
 
 @app.route('/user/<id>/')
 def user(id):
-    user=db.session.query(User).outerjoin(User.posts).filter(User.id==id).one()
+    user = db.session.query(User).outerjoin(User.posts).filter(User.id == id).one()
     if not user:
         render_template('/')
     else:
