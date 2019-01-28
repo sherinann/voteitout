@@ -5,7 +5,7 @@ from flask_login import current_user
 from werkzeug.utils import redirect
 
 from voteitapp import app, db
-from voteitapp.models import Post
+from voteitapp.models import Post, Vote
 from voteitapp.forms import PostForm
 
 
@@ -36,11 +36,22 @@ def post_detail(id):
     if request.method == 'GET':
         return render_template('post/detail.html', post=post)
     else:
+        vote_elem = db.session.query(Vote).filter(Vote.user == current_user.id).filter(Vote.post == Post.id)
+        if vote_elem.count():
+            vote_elem = vote_elem.one()
+            db.session.query(Vote).filter(Vote.id == vote_elem.id).delete()
+            if vote_elem.vote == -1:
+                post.downvotes = post.downvotes - 1
+            if vote_elem.vote == 1:
+                post.upvotes = post.upvotes - 1
         vote = int(request.values['votes'])
+
         if vote == -1:
             post.downvotes = post.downvotes + 1
-        if vote == 1:
+        else:
             post.upvotes = post.upvotes + 1
+        vote_obj = Vote(user=current_user.id, post=post.id, vote=vote)
+        db.session.add(vote_obj)
         db.session.commit()
         return render_template('post/detail.html', post=post)
 
