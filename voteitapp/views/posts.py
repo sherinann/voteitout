@@ -59,11 +59,11 @@ def get_current_user_posts():
     else:
         return redirect('/')
 
-
-@app.route('/search/<topic>/', methods=['GET'])
-def search_posts(topic):
-    posts = db.session.query(Post).filter(Post.title == topic).all()
-    if posts:
-        return render_template('post/posts.html', posts=posts)
-    else:
-        return redirect('/')
+#
+# @app.route('/search/<topic>/', methods=['GET'])
+# def search_posts(topic):
+#     posts = db.session.query(Post).filter(Post.title == topic).all()
+#     if posts:
+#         return render_template('post/posts.html', posts=posts)
+#     else:
+#         return redirect('/')
