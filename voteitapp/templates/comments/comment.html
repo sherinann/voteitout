@@ -1,0 +1,6 @@
+ <form action="/comments/comment/{{post_id}}" method="post">
+      {{ form.hidden_tag() }}
+    {{form.body.label}}<br>
+    {{form.body}}<br>
+     <input type="submit" value="submit">
+ </form>

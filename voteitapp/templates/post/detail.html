@@ -16,7 +16,7 @@
              <p>upvotes:{{post.upvotes}}</p>
             <p>downvotes:{{post.downvotes}}</p>
 
-            <form action="/post/{{post.id}}/" method="post">
+            <form action="/posts/post/{{post.id}}/" method="post">
     <div>
         <p>
       <label>
@@ -35,8 +35,16 @@
     <div>
         <input type="submit">
     </div>
-          <p><a href="/comment/add/{{post.id}}/">add comment</a></p>
-    </form>
+            </form>
+        <form>
+           {% for comment in post.comments %}
+              {{comment.body}}
+              {{comment.timestamp}}
+              {{comment.user_id}}
+              <br>
+              {% endfor %}
+          <p><a href="/comments/comment/{{post.id}}">add comment</a></p>
+        </form>
         </div>
 
       </div>

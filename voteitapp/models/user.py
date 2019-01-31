@@ -20,7 +20,6 @@ user_topic_association_table = Table('association', db.metadata,
                           )
 
 
-
 class User(UserMixin, db.Model):
 
     __tablename__ = 'user'

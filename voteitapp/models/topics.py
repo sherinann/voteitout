@@ -13,4 +13,10 @@ class Topic(db.Model):
     def __repr__(self):
         return '<topic + {' + self.name + '} >'
 
+    def serialize(self):
+        return {
+            'id':self.id,
+            'name':self.name     
+        }
+
 
