@@ -17,5 +17,6 @@ def add_comment(post_id):
         db.session.commit()
 
 
+
 def get_comments(post_id):
     comments = db.session.query(Comment).filter(Comment.post == post_id).all()
