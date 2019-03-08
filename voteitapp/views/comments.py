@@ -27,3 +27,6 @@ def add_comment(post_id):
 
 def get_comments(post_id):
     comments = db.session.query(Comment).filter(Comment.post == post_id).all()
+
+def test_comment():
+    return 1
